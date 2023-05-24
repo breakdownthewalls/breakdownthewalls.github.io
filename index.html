@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    background: rgb(172, 13, 13);
+    margin: 0;
+    color: #FFF;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cuzin-box {
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 460px) {
+    .cuzin-box {
+      width: 100%;
+      padding: .5rem;
+    }
+  }
+
+  .cuzin-header {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 6rem;
+  }
+
+  @media (max-width: 460px) {
+    .options {
+      gap: 0;
+    }
+  }
+
+  .button-opt {
+    font-size: 30px;
+    background: #ffffff;
+    width: 160px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+    position: absolute;
+    color: #333333;
+    font-weight: 500;
+  }
+
+  @media (max-width: 460px) {
+    .button-opt {
+      font-size: 20px;
+      background: #ffffff;
+      width: 80px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      cursor: pointer;
+      position: absolute;
+      color: #333333;
+      font-weight: 500;
+    }
+  }
+
+  .option-yes {
+    z-index: 1;
+  }
+
+  .option-yes-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    margin-right: auto;
+    z-index: 0;
+  }
+
+  .option-no-wrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+</style>
+
+<script>
+  window.addEventListener('load', () => {
+    const maxHeight = window.innerHeight;
+    const maxWidth = window.innerWidth;
+
+    const buttonNo = document.querySelector('.option-no-wrapper');
+    const buttonYes = document.querySelector('.option-yes');
+
+    const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+    let position;
+
+    buttonYes.addEventListener('click', () => {
+      window.location = 'https://www.youtube.com/embed/orWnzqBA63w?autoplay=1';
+    })
+
+    buttonNo.addEventListener('mouseenter', () => {
+      position ? (position = 0) : (position = 420);
+      buttonNo.style.transform = `translate(${position}px, ${Math.random() * 170}px)`;
+      buttonNo.style.transition = "all 0.15s ease";
+    });
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      buttonNo.addEventListener("touchstart", function () {
+        position ? (position = 0) : (position = 150);
+        buttonNo.style.transform = `translate(${position}px,0px)`;
+        buttonNo.style.transition = "all 0.3s ease";
+      });
+
+      buttonNo.addEventListener("touchend", function () {
+        position ? (position = 0) : (position = 150);
+        buttonNo.style.transform = `translate(${position}px,0px)`;
+        buttonNo.style.transition = "all 0.3s ease";
+      });
+    } else {
+      buttonNo.addEventListener("mouseover", function () {
+        position ? (position = 0) : (position = 150);
+        buttonNo.style.transform = `translate(${position}px,0px)`;
+        buttonNo.style.transition = "all 0.3s ease";
+      });
+    }
+  });
+</script>
+
+<body>
+  <section class="cuzin-box">
+    <div class="cuzin-header">
+      Cuzinho hoje?
+    </div>
+    <div class="cuzin-body">
+      <div class="options">
+        <div class="option-yes-wrapper">
+          <div class="button-opt option-yes">
+            SIM 🧡
+          </div>
+        </div>
+        <div class="option-no-wrapper">
+          <div class="button-opt option-no">
+            NÃO 😡
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

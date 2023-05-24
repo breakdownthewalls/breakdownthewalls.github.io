@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">]
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedido Humilde</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -85,6 +85,7 @@
       position: absolute;
       color: #333333;
       font-weight: 500;
+      user-select: none;
     }
   }
 
@@ -138,20 +139,20 @@
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       buttonNo.addEventListener("touchstart", function () {
-        position ? (position = 0) : (position = 150);
-        buttonNo.style.transform = `translate(${position}px,0px)`;
+        position ? (position = 0) : (position = 250);
+        buttonNo.style.transform = `translate(0px,${position}px)`;
         buttonNo.style.transition = "all 0.3s ease";
       });
 
       buttonNo.addEventListener("touchend", function () {
         position ? (position = 0) : (position = 150);
-        buttonNo.style.transform = `translate(${position}px,0px)`;
+        buttonNo.style.transform = `translate(0px,${position}px)`;
         buttonNo.style.transition = "all 0.3s ease";
       });
     } else {
       buttonNo.addEventListener("mouseover", function () {
         position ? (position = 0) : (position = 150);
-        buttonNo.style.transform = `translate(${position}px,0px)`;
+        buttonNo.style.transform = `translate(0px,${position}px)`;
         buttonNo.style.transition = "all 0.3s ease";
       });
     }

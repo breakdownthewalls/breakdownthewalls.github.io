@@ -137,24 +137,26 @@
       buttonNo.style.transition = "all 0.15s ease";
     });
 
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      buttonNo.addEventListener("touchstart", function () {
-        position ? (position = 0) : (position = 250);
-        buttonNo.style.transform = `translate(0px,${position}px)`;
-        buttonNo.style.transition = "all 0.3s ease";
-      });
-
-      buttonNo.addEventListener("touchend", function () {
-        position ? (position = 0) : (position = 150);
-        buttonNo.style.transform = `translate(0px,${position}px)`;
-        buttonNo.style.transition = "all 0.3s ease";
-      });
-    } else {
-      buttonNo.addEventListener("mouseover", function () {
-        position ? (position = 0) : (position = 150);
-        buttonNo.style.transform = `translate(0px,${position}px)`;
-        buttonNo.style.transition = "all 0.3s ease";
-      });
+    if(maxWidth <= 766) {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        buttonNo.addEventListener("touchstart", function () {
+          position ? (position = 0) : (position = 250);
+          buttonNo.style.transform = `translate(0px,${position}px)`;
+          buttonNo.style.transition = "all 0.15s ease";
+        });
+  
+        buttonNo.addEventListener("touchend", function () {
+          position ? (position = 0) : (position = 150);
+          buttonNo.style.transform = `translate(0px,${position}px)`;
+          buttonNo.style.transition = "all 0.15s ease";
+        });
+      } else {
+        buttonNo.addEventListener("mouseover", function () {
+          position ? (position = 0) : (position = 150);
+          buttonNo.style.transform = `translate(0px,${position}px)`;
+          buttonNo.style.transition = "all 0.15s ease";
+        });
+      }
     }
   });
 </script>
